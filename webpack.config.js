@@ -22,6 +22,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
+    inline: true,
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
