@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Sparklines, SparklinesLine, SparklinesReferenceLine} from 'react-sparklines';
 import _ from 'lodash';
 
+import GoogleMap from '../components/google_map';
+
 class Chart extends Component {
     average(data) {
         return _.round(_.sum(data) / data.length);
@@ -31,10 +33,11 @@ class WeatherList extends Component {
         const tempData = this.buildDataList(cityData, 'temp');
         const pressureData = this.buildDataList(cityData, 'pressure');
         const humidityData = this.buildDataList(cityData, 'humidity');
+        const {lat, lon} = cityData.city.coord;
 
         return (
             <tr key={cityName}>
-                <td>{cityName}</td>
+                <td><GoogleMap lat={lat} lon={lon}/></td>
                 <td><Chart data={tempData} color="orange" units="K" /></td>
                 <td><Chart data={pressureData} color="green" units="hPa" /></td>
                 <td><Chart data={humidityData} color="black" units="%" /></td>
