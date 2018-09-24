@@ -38,7 +38,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps({posts}) {
-    console.log('mapStateToProps', posts);
     return {
         posts
     };
