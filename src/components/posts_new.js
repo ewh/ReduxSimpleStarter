@@ -25,7 +25,7 @@ class PostsNew extends Component {
                     type="text"
                     {...field.input}
                 />
-                <div className="text-help">
+                <div className="form-control-feedback">
                     {touched ? error : ''}
                 </div>
             </div>
