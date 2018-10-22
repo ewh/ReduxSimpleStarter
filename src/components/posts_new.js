@@ -38,26 +38,22 @@ class PostsNew extends Component {
         });
     }
 
+    constructField(name, labelValue) {
+        return (<Field
+            labelValue={labelValue}
+            name={name}
+            component={this.renderTextField}
+        />);
+    }
+
     render() {
         const {handleSubmit} = this.props;
 
         return (
             <form onSubmit={handleSubmit(this.onSubmit)}>
-                <Field
-                    labelValue="Title"
-                    name="title"
-                    component={this.renderTextField}
-                />
-                <Field
-                    labelValue="Categories"
-                    name="categories"
-                    component={this.renderTextField}
-                />
-                <Field
-                    labelValue="Post Content"
-                    name="content"
-                    component={this.renderTextField}
-                />
+                {this.constructField('title', 'Title')}
+                {this.constructField('categories', 'Categories')}
+                {this.constructField('content', 'Post Content')}
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
